@@ -44,10 +44,10 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 
 	(function () {
-	  alert(1);
+	  console.log('👌');
 	})();
 
 /***/ }

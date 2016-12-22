@@ -29,7 +29,7 @@ const DIR = {
 
 gulp.task('webpack', () => {
   return gulp
-    .src(DIR.SEC + 'js/entry.js')
+    .src(DIR.SRC + 'js/entry.js')
     .pipe(plumber())
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(DIR.PUBLIC + 'js/'))
@@ -38,7 +38,7 @@ gulp.task('webpack', () => {
 
 gulp.task('postcss', () => {
   return gulp
-    .src(DIR.SEC + 'css/main.css')
+    .src(DIR.SRC + 'css/main.css')
     .pipe(plumber())
     .pipe(postcss([
       atImport(),
@@ -111,5 +111,6 @@ gulp.task('minifyJs', () => {
 gulp.task('default', ['server', 'postcss', 'webpack'], () => {
   gulp.watch([DIR.SRC + 'css/**/*.css'], ['postcss']);
   gulp.watch([DIR.SRC + 'js/**/*.js'], ['webpack']);
+  gulp.watch([DIR.PUBLIC + '/**/*.html'], reload);
 });
 
