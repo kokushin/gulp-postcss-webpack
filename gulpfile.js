@@ -38,7 +38,7 @@ gulp.task('webpack', () => {
 
 gulp.task('postcss', () => {
   return gulp
-    .src(DIR.SRC + 'css/main.css')
+    .src(DIR.SRC + 'css/entry.css')
     .pipe(plumber())
     .pipe(postcss([
       atImport(),
