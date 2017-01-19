@@ -19,6 +19,7 @@ const gulp          = require('gulp'),
       htmlmin       = require('gulp-htmlmin'),
       cssmin        = require('gulp-cssmin'),
       uglify        = require('gulp-uglify'),
+      rename        = require('gulp-rename'),
       reload        = browser.reload;
 
 const DIR = {
@@ -51,6 +52,7 @@ gulp.task('postcss', () => {
       }),
       cssnano()
     ]))
+    .pipe(rename('main.css'))
     .pipe(gulp.dest(DIR.PUBLIC + 'css/'))
     .pipe(browser.reload({stream: true}));
 });
