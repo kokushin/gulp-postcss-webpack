@@ -2,4 +2,4 @@
 * index.html
 */
 
-.app-index {}
+#app[data-page="index"] {}

@@ -1,0 +1,40 @@
+@define-mixin pos-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@define-mixin pos-cover-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@define-mixin pos-cover-clear {
+  position: static;
+  top: auto;
+  left: auto;
+}
+
+@define-mixin bg-cover {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+@define-mixin animate-slide-up {
+  opacity: 0;
+  transform: translate3d(0,20px,0);
+  transition: transform 1s easeOutQuart,
+              opacity 1s ease;
+}
+
+@define-mixin animate-reset {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+
