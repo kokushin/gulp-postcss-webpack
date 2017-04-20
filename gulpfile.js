@@ -30,7 +30,7 @@ const DIR = {
 
 gulp.task('webpack', () => {
   return gulp
-    .src(DIR.SRC + 'js/entry.js')
+    .src(DIR.SRC + 'js/app.js')
     .pipe(plumber())
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(DIR.PUBLIC + 'js/'))
@@ -39,7 +39,7 @@ gulp.task('webpack', () => {
 
 gulp.task('postcss', () => {
   return gulp
-    .src(DIR.SRC + 'css/entry.css')
+    .src(DIR.SRC + 'css/style.css')
     .pipe(plumber())
     .pipe(postcss([
       atImport(),
@@ -52,7 +52,7 @@ gulp.task('postcss', () => {
       }),
       cssnano()
     ]))
-    .pipe(rename('main.css'))
+    .pipe(rename('style.css'))
     .pipe(gulp.dest(DIR.PUBLIC + 'css/'))
     .pipe(browser.reload({stream: true}));
 });
