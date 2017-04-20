@@ -1,0 +1,23 @@
+/*
+* defaults
+*/
+
+*,
+*:before,
+*:after {
+  border-box: box-sizing;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Noto Sans Japanese", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, Meiryo, sans-serif;
+  background-color: $default-background-color;
+}
+
+
+/*
+* users
+*/
+
+.app {
+  position: relative;
+}

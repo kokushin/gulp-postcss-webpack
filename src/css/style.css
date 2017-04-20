@@ -1,6 +1,25 @@
+/*
+* settings
+*/
+
 @import 'vars/setting.css';
 
-@import 'foundation/reset.css';
+/*
+* foundations
+*/
 
-@import 'layout/header.css';
-@import 'layout/footer.css';
+@import 'foundations/reset.css';
+@import 'foundations/base.css';
+
+/*
+* layouts
+*/
+
+@import 'layouts/header.css';
+@import 'layouts/footer.css';
+
+/*
+* pages
+*/
+
+@import 'pages/index.css';

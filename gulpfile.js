@@ -1,31 +1,31 @@
 'use strict';
 
-const gulp          = require('gulp'),
-      del           = require('del'),
-      watch         = require('gulp-watch'),
-      plumber       = require('gulp-plumber'),
-      webpack       = require('gulp-webpack'),
-      webpackConfig = require('./webpack.config.js'),
-      postcss       = require('gulp-postcss'),
-      atImport      = require('postcss-import'),
-      easings       = require('postcss-easings'),
-      vars          = require('postcss-simple-vars'),
-      nested        = require('postcss-nested'),
-      mixins        = require('postcss-mixins'),
-      autoprefixer  = require('autoprefixer'),
-      cssnano       = require('cssnano'),
-      browser       = require('browser-sync'),
-      runSequence   = require('run-sequence'),
-      htmlmin       = require('gulp-htmlmin'),
-      cssmin        = require('gulp-cssmin'),
-      uglify        = require('gulp-uglify'),
-      rename        = require('gulp-rename'),
-      reload        = browser.reload;
+const gulp = require('gulp'),
+  del = require('del'),
+  watch = require('gulp-watch'),
+  plumber = require('gulp-plumber'),
+  webpack = require('gulp-webpack'),
+  webpackConfig = require('./webpack.config.js'),
+  postcss = require('gulp-postcss'),
+  atImport = require('postcss-import'),
+  easings = require('postcss-easings'),
+  vars = require('postcss-simple-vars'),
+  nested = require('postcss-nested'),
+  mixins = require('postcss-mixins'),
+  autoprefixer = require('autoprefixer'),
+  cssnano = require('cssnano'),
+  browser = require('browser-sync'),
+  runSequence = require('run-sequence'),
+  htmlmin = require('gulp-htmlmin'),
+  cssmin = require('gulp-cssmin'),
+  uglify = require('gulp-uglify'),
+  rename = require('gulp-rename'),
+  reload = browser.reload;
 
 const DIR = {
-  SRC:    'src/',
+  SRC: 'src/',
   PUBLIC: 'public/',
-  BUILD:  'dist/'
+  BUILD: 'dist/'
 };
 
 gulp.task('webpack', () => {
@@ -34,7 +34,7 @@ gulp.task('webpack', () => {
     .pipe(plumber())
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(DIR.PUBLIC + 'js/'))
-    .pipe(browser.reload({stream: true}));
+    .pipe(browser.reload({ stream: true }));
 });
 
 gulp.task('postcss', () => {
@@ -52,9 +52,9 @@ gulp.task('postcss', () => {
       }),
       cssnano()
     ]))
-    .pipe(rename('style.css'))
+    .pipe(rename('main.css'))
     .pipe(gulp.dest(DIR.PUBLIC + 'css/'))
-    .pipe(browser.reload({stream: true}));
+    .pipe(browser.reload({ stream: true }));
 });
 
 gulp.task('server', () => {
@@ -92,7 +92,7 @@ gulp.task('copy', () => {
 gulp.task('minifyHtml', () => {
   return gulp
     .src(DIR.BUILD + '/**/*.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest(DIR.BUILD));
 });
 
@@ -106,7 +106,7 @@ gulp.task('minifyCss', () => {
 gulp.task('minifyJs', () => {
   return gulp
     .src(DIR.BUILD + '/**/*.js')
-    .pipe(uglify({preserveComments: 'some'}))
+    .pipe(uglify({ preserveComments: 'some' }))
     .pipe(gulp.dest(DIR.BUILD));
 });
 
@@ -115,4 +115,3 @@ gulp.task('default', ['server', 'postcss', 'webpack'], () => {
   gulp.watch([DIR.SRC + 'js/**/*.js'], ['webpack']);
   gulp.watch([DIR.PUBLIC + '/**/*.html'], reload);
 });
-

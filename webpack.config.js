@@ -5,7 +5,7 @@ const path = require('path'),
 
 let config = {
   entry: {
-    app: './src/js/entry.js'
+    app: './src/js/app.js'
   },
   output: {
     filename: 'app.js'
@@ -25,9 +25,6 @@ let config = {
         }
       }
     ]
-  },
-  plugins: {
-    // new webpack.optimize.UglifyJsPlugin()
   }
 };
 
